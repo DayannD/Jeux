@@ -12,11 +12,8 @@ let scoreGlobal1 = 0
 let scoreRound2 = 0
 let scoreGlobal2 = 0
 
-
 document.querySelector("#launch").addEventListener("click",getNumber)
-conditionsVictoire()
 document.querySelector("#hold").addEventListener("click",setNumber)
-conditionsVictoire()
 
 // dé 
 function getNumber(){
@@ -33,23 +30,28 @@ function getNumber(){
         return
       }else{
         //on incrémente scoreRound avec numb (les numéro du dé)
-        scoreRound1 = scoreRound1 + numb
-        firstDé.innerHTML = scoreRound1
-      } 
+        scoreRound1 = scoreRound1 + numb 
+        firstDé.innerHTML = scoreRound1 
+        if(scoreRound1 + scoreGlobal1 >= 100){
+          gagnant()
+        }
+      }
   }else{
     //si le joueur est a false alors c'est le tour du joueur 2
-    statut.innerHTML = `C'est le tour du joueur 2 `
+    statut.innerHTML = `C'est le tour du joueur 2`
     numb = Math.floor((Math.random() * 6) + 1)
-    console.log(numb)
       if(numb === 1){
         //passe tour, scoreround = 0 et joueur a false pour passe la main au joueur suivant
         joueur1 = true
         scoreRound2 = 0
-        return 
+        return
       }else{
       //on incrémente scoreRound avec numb (les numéro du dé)
       scoreRound2 = scoreRound2 + numb
       secondDé.innerHTML = scoreRound2
+      if(scoreRound2 + scoreGlobal2 >= 100){
+        gagnant()
+      }
     }}
   return scoreRound1 & scoreRound2
 }
@@ -68,3 +70,15 @@ function setNumber(){
     joueur1 = true
   }
 }
+
+function gagnant()
+{
+  if(joueur1 == true){
+    //si c'est le joueur 1 qui veut save son score
+    alert("Le joueur 1 a gagner !!!")
+    console.log('Le joueur 1 à gagner')
+    
+  }else{
+    alert("Le joueur 2 a gagner !!!")
+    console.log('Le joueur 2 à gagner')
+}}
