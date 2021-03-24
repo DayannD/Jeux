@@ -87,7 +87,6 @@ svg{
   position: absolute;
   width: 100%;
   height: 100%;
-  padding-top: 40%;
   background: radial-gradient(#FFF, #FFF 50%, #EEE);
   border: 4px solid black;
   border-radius: 5%;
