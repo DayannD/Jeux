@@ -7,6 +7,7 @@ const secondDé = document.querySelector("#secondDé")
 const globalScore1 = document.querySelector("#globalScore1")
 const globalScore2 = document.querySelector("#globalScore2")
 const replay = document.querySelector('#replay')
+const cube = document.querySelector('.cube')
 
 document.querySelector("#launch").addEventListener("click",getNumber)
 document.querySelector("#hold").addEventListener("click",setNumber)
@@ -21,6 +22,7 @@ function getNumber(){
   if(joueur1 == true){
     statut.innerHTML = `C'est le tour du joueur 1 `
     numb = Math.floor((Math.random() * 6) + 1)
+    cube.dataset.show = numb
 
       if(numb === 1){
         //passe tour, scoreround = 0 et joueur a false pour passe la main au joueur suivant et met un message pour le l'utilisateur
@@ -42,6 +44,7 @@ function getNumber(){
     //si le joueur est a false alors c'est le tour du joueur 2
     statut.innerHTML = `C'est le tour du joueur 2`
     numb = Math.floor((Math.random() * 6) + 1)
+    cube.dataset.show = numb
       if(numb === 1){
         //passe tour, scoreround = 0 et joueur a false pour passe la main au joueur suivant
         joueur1 = true
